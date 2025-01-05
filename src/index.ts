@@ -10,7 +10,7 @@ app.get('/',  async (c) => {
   let row = (await db.query('select current_timestamp tstamp')).rows[0]
   const dbTime = row.tstamp.toISOString()
 
-  db.close();
+  await db.end()
   return c.json({startTime,
                 dbTime,
                 endTime: (new Date().toISOString())
