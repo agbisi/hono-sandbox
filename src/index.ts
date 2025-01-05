@@ -3,7 +3,7 @@ import { Client } from 'pg'
 
 const app = new Hono()
 
-app.get('/', async (c) => {
+app.get('/',  (c) => {
 
   const startTime = (new Date()).toISOString()
   const connstr = c.env.COCKROACH_CONN_STR
