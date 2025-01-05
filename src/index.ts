@@ -13,7 +13,7 @@ app.get('/',  async (c) => {
   await db.end()
   return c.json({startTime,
                 dbTime,
-                endTime: (new Date().toISOString())
+                endTime: (new Date()).toISOString()
   })
    })
 
