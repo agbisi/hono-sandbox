@@ -10,7 +10,7 @@ app.get('/', async (c) => {
   const db = new Client({connectionString: apiKey})
 
   try {
-    let rows = await db.query('select current_timestamp tstamp')
+    let rows = await db.query('select current_timestamp tstamp').rows
     let dbDate = rows[0].tstamp.toISOString()
 
     await db.end()
