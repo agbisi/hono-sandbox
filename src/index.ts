@@ -3,9 +3,11 @@ import { Client } from 'pg'
 
 const app = new Hono()
 
-app.get('/',   (c) => {
+app.get('/', async (c) => {
+  let sum = await (3 + 7)
   return c.json({
-    message: 'Hello Hono'
+    message: 'Hello Hono',
+    sum
   })
    })
 
