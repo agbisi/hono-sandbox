@@ -28,7 +28,7 @@ app.get('/', async (c) => {
     })
   } catch (err) {
     console.log(err)
-    return c.text(err.message)
+    return c.text(`errr! ${err.message}`)
   }
 
    })
