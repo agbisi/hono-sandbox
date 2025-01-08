@@ -10,7 +10,7 @@ app.get('/', async (c) => {
   const db = new Client({connectionString: apiKey})
 
   try {
-    let roes = await db.query('select cuurent_timestamp tstamp')
+    let rows = await db.query('select cuurent_timestamp tstamp')
     let dbDate = rows[0].tstamp.toISOString()
     return c.json({
       svDate,
@@ -21,10 +21,6 @@ app.get('/', async (c) => {
     return c.text('Unknown error!')
   }
 
-  return c.json({
-    message: 'Hello Hono',
-    ky: apiKey.slice(0, 5)
-  })
    })
 
 export default app
