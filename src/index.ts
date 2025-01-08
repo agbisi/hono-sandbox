@@ -20,7 +20,7 @@ app.get('/', async (c) => {
     })
   } catch (err) {
     console.log(err)
-    return c.text('Unknown error!')
+    return c.text(err.message)
   }
 
    })
