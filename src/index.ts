@@ -11,13 +11,13 @@ app.get('/', async (c) => {
 
   try {
     await db.connect()
-    let rows = (await db.query("select Now() tstamp")).rows
-    let dbDate = rows[0].tstamp.toISOString()
+    // let rows = (await db.query("select Now() tstamp")).rows
+    // let dbDate = rows[0].tstamp.toISOString()
 
     await db.end()
     return c.json({
       svDate,
-      dbDate
+      // dbDate
     })
   } catch (err) {
     console.log(err)
