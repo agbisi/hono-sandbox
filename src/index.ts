@@ -13,7 +13,7 @@ app.get('/', async (c) => {
     statement_tomeout: 30000,
     connectionTimeoutMillis: 30000,
     lock_timeout: 30000,
-    query_timeout_30000,
+    query_timeout: 30000,
   })
 
   try {
