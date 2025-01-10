@@ -30,9 +30,7 @@ async function run(env){
 }
 
 app.get('/', async (c) => {
-  console.log('running...')
-  let r = await run(c.env)
-  return c.json(r)
+  return c.text('Hello Hono')
    })
 
 export default app
