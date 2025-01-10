@@ -3,7 +3,7 @@ import { Client } from 'pg'
 
 const app = new Hono()
 
-app.get('/', async (c) => {
+async run(c){
   const serverTime = new Date().toISOString()
 
   const db = new Client({
@@ -19,11 +19,16 @@ app.get('/', async (c) => {
   const dbTime = row.tstamp.toString()
   await db.end()
 
-  return c.json({
+  return {
     serverTime,
     dbTime,
-  })
+  }
 
+
+}
+
+app.get('/', async (c) => {
+  return c.json( await run(c) )
    })
 
 export default app
