@@ -15,9 +15,11 @@ async function run(env){
   })
 
   await db.connect()
+  console.log('connected')
   let row = (await db.query('SELECT NOW() tstamp')).rows[0]
   const dbTime = row.tstamp.toString()
   await db.end()
+  console.log('closed')
 
   return {
     serverTime,
@@ -28,6 +30,7 @@ async function run(env){
 }
 
 app.get('/', async (c) => {
+  console.log('running...')
   let r = await run(c.env)
   return c.json(r)
    })
