@@ -3,14 +3,14 @@ import { Client } from 'pg'
 
 const app = new Hono()
 
-async run(c){
+async function run(env){
   const serverTime = new Date().toISOString()
 
   const db = new Client({
-    connectionString: c.env.COCKROACH_CONN_STR,
+    connectionString: env.COCKROACH_CONN_STR,
     ssl: {
       rejectUnauthorized: false,
-      ca: c.env.CERT,
+      ca: env.CERT,
     }
   })
 
@@ -28,7 +28,7 @@ async run(c){
 }
 
 app.get('/', async (c) => {
-  let r = run(c)
+  let r = run(c.env)
   return c.json(await r)
    })
 
