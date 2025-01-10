@@ -28,8 +28,8 @@ async function run(env){
 }
 
 app.get('/', async (c) => {
-  let r = run(c.env)
-  return c.json(await r)
+  let r = await run(c.env)
+  return c.json(r)
    })
 
 export default app
