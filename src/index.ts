@@ -28,7 +28,8 @@ async run(c){
 }
 
 app.get('/', async (c) => {
-  return c.json( await run(c) )
+  let r = run(c)
+  return c.json(await r)
    })
 
 export default app
